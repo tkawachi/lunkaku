@@ -2,6 +2,7 @@
 # encoding: utf-8
 from google.appengine.ext import db
 from geo.geomodel import GeoModel
+import logging
 
 class LunchTweet(GeoModel) :
     """ランチのつぶやき情報を格納するモデルですよ。
