@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>lunkaku</title>
+<!-- META -->
+<meta name="robots" content="index,follow" />
+<!-- LINK -->
+<link rel="shortcut icon" href="/static/img/favicon.png" />
+<link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png" />
+<!-- STYLE -->
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.css" type="text/css" media="screen" />
+<link rel="stylesheet" media="only all" href="./theme.css" />
+<!-- SCRIPT -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="./lunkaku-client.js"></script>
+
+</head>
+
+<body class="ui-mobile-viewport" onLoad="getNearbyLunchRemarks();">
+<div class="ui-page ui-body-b ui-page-active" data-theme="b" data-role="page">
+
+<div class="ui-header" data-role="header" role="banner">
+	<h1 class="ui-title" tabindex="0" role="heading" aria-level="1">lunkaku</h1>
+</div>
+
+
+<div data-role="content">
+
+	<ul id="result" class=" ui-listview " data-role="listview">
+		<li class="ui-btn ui-btn-icon-right ui-li ui-li-has-thumb ui-btn-up-c" data-theme="c">
+			<div class="ui-btn-inner ui-li">
+				<div class="ui-btn-text">
+					<a class="ui-link-inherit" href="">
+						<img class="ui-li-thumb" src="/static/img/album-bb.jpg">
+						<p class="ui-li-desc">Tweetを表示する</p>
+					</a>
+
+				</div>
+				<span class="ui-icon ui-icon-arrow-r"></span>
+			</div>
+		</li>
+	</ul>
+
+</div><!-- #content -->
+
+</div><!-- #page -->
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', '']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+
+</html>
