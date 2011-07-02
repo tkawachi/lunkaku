@@ -1,5 +1,6 @@
-.installed.cfg
-bin/
-downloads/
-eggs/
-parts/
+/.installed.cfg
+/bin/
+/downloads/
+/eggs/
+/parts/
+/app/distlib.zip
