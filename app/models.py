@@ -4,7 +4,7 @@ from google.appengine.ext import db
 from geo.geomodel import GeoModel
 
 class LunchTweet(GeoModel) :
-    """$B%i%s%A$N$D$V$d$->pJs$r3JG<$9$k%b%G%k$G$9$h!#(B
+    """ランチのつぶやき情報を格納するモデルですよ。
     """
     twitter_name = db.StringProperty()
     twitter_disp_name = db.StringProperty()
