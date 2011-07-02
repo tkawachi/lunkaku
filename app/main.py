@@ -2,8 +2,9 @@
 
 import sys; sys.path.insert(0, './distlib.zip')
 from google.appengine.ext.webapp.util import run_wsgi_app
+from google.appengine.ext import db
 import werkzeug
-from flask import Flask, json
+from flask import Flask, json, request
 app = Flask(__name__)
 
 import models
@@ -12,8 +13,7 @@ import models
 def index():
     return 'hello world'
 
-@app.route('/list')
-def list():
+def list_dummy():
     """ダミーデータを返すようにしてます"""
     dummy_result = [
         {
@@ -32,6 +32,24 @@ def list():
         },
         ]
     return json.dumps(dummy_result)
+
+@app.route('/list')
+def list_endpoint():
+    """nearby の LunchTweet 一覧を json で返します。
+    """
+    lat = float(request.values['lat'])
+    lon = float(request.values['lon'])
+    nearby_tweets = models.LunchTweet.get_nearby(db.GeoPt(lat, lon))
+    result = []
+    for tweet in nearby_tweets:
+        result.append({
+            'twitter_name': tweet.twitter_name,
+            'twitter_profile_image': tweet.twitter_profile_image,
+            'lat': tweet.location.lat,
+            'lon': tweet.location.lon,
+            'content': tweet.tweet_content,
+            })
+    return json.dumps(result)
 
 if __name__ == '__main__':
     run_wsgi_app(app)
