@@ -51,6 +51,7 @@ def list_endpoint():
     for tweet in nearby_tweets:
         result.append({
             'twitter_name': tweet.twitter_name,
+            'twitter_display_name': tweet.twitter_disp_name,
             'twitter_profile_image': tweet.twitter_profile_image,
             'lat': tweet.location.lat,
             'lon': tweet.location.lon,
