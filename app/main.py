@@ -89,14 +89,17 @@ def fetch_tweet():
     tweets = api.search(q='#lunkaku', since_id=since_id, show_user=True)
     n = 0
     for t in tweets:
-        #user = api.get_user(screen_name=t.from_user)
+        # TODO type=Point 以外も使えるようにする
         if not t.geo or t.geo[u'type'] != u'Point':
             continue
         coord = t.geo[u'coordinates']
 
+        user = api.get_user(screen_name=t.from_user)
+        # TODO user の位置情報を利用する
+
         l = models.LunchTweet(twitter_name=t.from_user,
-                twitter_disp_name='', # TODO なぜか取れないので無視してます
-                twitter_profile_image=t.profile_image_url,
+                twitter_disp_name = user.name,
+                twitter_profile_image = t.profile_image_url,
                 tweet_id = t.id,
                 tweet_content = t.text,
                 tweet_date = t.created_at,
