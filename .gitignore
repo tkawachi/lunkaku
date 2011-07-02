@@ -4,3 +4,9 @@
 /eggs/
 /parts/
 /app/distlib.zip
+*.swp
+*.swo
+*.pyc
+*~
+.svn
+.DS_Store
