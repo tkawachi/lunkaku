@@ -6,6 +6,8 @@ import werkzeug
 from flask import Flask, json
 app = Flask(__name__)
 
+import models
+
 @app.route('/')
 def index():
     return 'hello world'
